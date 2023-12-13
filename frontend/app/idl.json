@@ -1,43 +1,111 @@
 {
-    "version": "0.1.0",
-    "name": "sol_blog",
-    "instructions": [
-      {
-        "name": "initialize",
-        "accounts": [
+  "version": "0.1.0",
+  "name": "sol_blog",
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "addBlog",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "content",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "upvote",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "blogTimestamp",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Blogs",
+      "type": {
+        "kind": "struct",
+        "fields": [
           {
-            "name": "baseAccount",
-            "isMut": true,
-            "isSigner": true
+            "name": "totalBlogs",
+            "type": "u64"
           },
           {
-            "name": "user",
-            "isMut": true,
-            "isSigner": true
-          },
-          {
-            "name": "systemProgram",
-            "isMut": false,
-            "isSigner": false
+            "name": "blogsList",
+            "type": {
+              "vec": {
+                "defined": "Blog"
+              }
+            }
           }
-        ],
-        "args": []
-      },
-      {
-        "name": "addBlog",
-        "accounts": [
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "Blog",
+      "type": {
+        "kind": "struct",
+        "fields": [
           {
-            "name": "baseAccount",
-            "isMut": true,
-            "isSigner": false
+            "name": "author",
+            "type": "publicKey"
           },
-          {
-            "name": "user",
-            "isMut": true,
-            "isSigner": true
-          }
-        ],
-        "args": [
           {
             "name": "content",
             "type": "string"
@@ -47,65 +115,18 @@
             "type": "string"
           },
           {
+            "name": "likes",
+            "type": "u64"
+          },
+          {
             "name": "timestamp",
             "type": "u64"
           }
         ]
       }
-    ],
-    "accounts": [
-      {
-        "name": "Blogs",
-        "type": {
-          "kind": "struct",
-          "fields": [
-            {
-              "name": "totalBlogs",
-              "type": "u64"
-            },
-            {
-              "name": "blogsList",
-              "type": {
-                "vec": {
-                  "defined": "Blog"
-                }
-              }
-            }
-          ]
-        }
-      }
-    ],
-    "types": [
-      {
-        "name": "Blog",
-        "type": {
-          "kind": "struct",
-          "fields": [
-            {
-              "name": "author",
-              "type": "publicKey"
-            },
-            {
-              "name": "content",
-              "type": "string"
-            },
-            {
-              "name": "title",
-              "type": "string"
-            },
-            {
-              "name": "likes",
-              "type": "u64"
-            },
-            {
-              "name": "timestamp",
-              "type": "u64"
-            }
-          ]
-        }
-      }
-    ],
-    "metadata": {
-      "address": "DgNYxvrmjUVzyLKfxamnbRXJVGCDhH8Ypr3TheKYP3gA"
     }
+  ],
+  "metadata": {
+    "address": "DgNYxvrmjUVzyLKfxamnbRXJVGCDhH8Ypr3TheKYP3gA"
   }
+}
