@@ -49,7 +49,11 @@ function Home() {
       blogsList: [];
     };
 
-    setBlogs(account.blogsList);
+    const blogs = account.blogsList;
+
+    blogs.sort((a: blog, b: blog) => Number(b.likes) - Number(a.likes));
+
+    setBlogs(blogs);
   }
 
   useEffect(() => {
@@ -62,27 +66,36 @@ function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    connectSolanaWallet();
+    getAllBlogs();
+  }, []);
+
   return (
     <div>
       {address ? (
         <>
           <p>{address}</p>
+          <br />
           <Link href="/makeNewBlog" style={{ textDecoration: "none" }}>
             Make new blog
           </Link>
           <br />
-          <button onClick={getAllBlogs}>Get blogs</button>
-          <br />
-          {blogs.map(function (blog: blog) {
-            return (
-              <div className="blog-card" key={Number(blog.timestamp)}>
-                <p>{blog.author.toString()}</p>
-                <h2>{blog.title}</h2>
-                <p>{blog.content}</p>
-                <Link href={`/getBlog/${blog.timestamp}`}>See this blog</Link>
-              </div>
-            );
-          })}
+          {blogs.length === 0 ? (
+            <h1>No blogs to show</h1>
+          ) : (
+            blogs.map(function (blog: blog) {
+              return (
+                <div className="blog-card" key={Number(blog.timestamp)}>
+                  {/* <p>{blog.author.toString()}</p> */}
+                  <h2>{blog.title}</h2>
+                  {/* <p>{blog.content}</p> */}
+                  <p>{Number(blog.likes)}</p>
+                  <Link href={`/getBlog/${blog.timestamp}`}>See this blog</Link>
+                </div>
+              );
+            })
+          )}
         </>
       ) : (
         <>
