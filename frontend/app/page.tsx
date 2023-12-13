@@ -77,7 +77,7 @@ function Home() {
         <>
           <p>{address}</p>
           <br />
-          <Link href="/makeNewBlog" style={{ textDecoration: "none" }}>
+          <Link href="/makeNewBlog" className="new-blog-button">
             Make new blog
           </Link>
           <br />
@@ -86,13 +86,14 @@ function Home() {
           ) : (
             blogs.map(function (blog: blog) {
               return (
-                <div className="blog-card" key={Number(blog.timestamp)}>
-                  {/* <p>{blog.author.toString()}</p> */}
+                <Link
+                  key={Number(blog.timestamp)}
+                  href={`/getBlog/${blog.timestamp}`}
+                  className="blog-card"
+                >
                   <h2>{blog.title}</h2>
-                  {/* <p>{blog.content}</p> */}
                   <p>{Number(blog.likes)}</p>
-                  <Link href={`/getBlog/${blog.timestamp}`}>See this blog</Link>
-                </div>
+                </Link>
               );
             })
           )}

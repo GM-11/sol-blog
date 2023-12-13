@@ -1,11 +1,18 @@
 .blog-card {
   border: 1px solid black;
-  padding: 1rem;
-  margin: 1rem  0 ;
+  margin: 1rem 0;
   display: flex;
+  border-radius: 10px;
   flex-direction: column;
+  text-decoration: none;
+  color: black;
 }
 
-body{
+body {
   padding: 1rem;
+}
+
+.new-blog-button {
+  text-decoration: none;
+  color: black;
 }
