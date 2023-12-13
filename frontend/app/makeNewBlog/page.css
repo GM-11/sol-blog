@@ -1,4 +1,41 @@
 input {
-    border: 1px solid black;
-    height: 5rem;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.content {
+  width: 100%;
+  border-radius: 10px;
+  height: 20rem;
+  padding: 1rem 1rem 12rem 1rem;
+  vertical-align: top;
+  scrollbar-width: 0;
+}
+
+button {
+  background: linear-gradient(
+    90deg,
+    rgba(207, 44, 249, 1) 12%,
+    rgba(22, 233, 172, 1) 75%
+  );
+  color: white;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition:  0.2s; /* Add transition for a smooth effect */
+
+}
+
+button:hover {
+    transition:  0.2s; /* Add transition for a smooth effect */
+    border-radius: 20px;
+}
+
+.error{
+    color: red;
+    margin: 0.5rem 0;
+
 }

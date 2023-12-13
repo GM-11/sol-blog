@@ -72,30 +72,49 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="main">
       {address ? (
         <>
-          <p>{address}</p>
           <br />
-          <Link href="/makeNewBlog" className="new-blog-button">
-            Make new blog
+          <h1>SolBlog</h1>
+          <br />
+
+          <Link className="make-blog-button" href="/makeNewBlog">
+            Make your own blog
           </Link>
           <br />
+          <br />
+          <p>
+            Your phantom wallet address: <strong>{address}</strong>
+          </p>
+          <br />
           {blogs.length === 0 ? (
-            <h1>No blogs to show</h1>
+            <p>No blogs to show</p>
           ) : (
-            blogs.map(function (blog: blog) {
-              return (
-                <Link
-                  key={Number(blog.timestamp)}
-                  href={`/getBlog/${blog.timestamp}`}
-                  className="blog-card"
-                >
-                  <h2>{blog.title}</h2>
-                  <p>{Number(blog.likes)}</p>
-                </Link>
-              );
-            })
+            <div className="blog-container">
+              {blogs.map(function (blog: blog) {
+                return (
+                  <Link
+                    href={`/getBlog/${blog.timestamp}`}
+                    className="blog-card"
+                    key={Number(blog.timestamp)}
+                  >
+                    <h1>{blog.title}</h1>
+                    <strong>
+                      {new Date(Number(blog.timestamp)).toLocaleDateString(
+                        "en-gb",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        }
+                      )}
+                    </strong>
+                    <p>{blog.author.toString()}</p>
+                  </Link>
+                );
+              })}
+            </div>
           )}
         </>
       ) : (

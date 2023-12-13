@@ -1,18 +1,91 @@
 .blog-card {
-  border: 1px solid black;
-  margin: 1rem 0;
+  border: 2px solid white;
+  margin: 0;
+  padding: 1rem 0.5rem;
   display: flex;
   border-radius: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 15rem;
   flex-direction: column;
   text-decoration: none;
-  color: black;
+  color: white;
+  background: linear-gradient(
+    90deg,
+    rgba(207, 44, 249, 0.5) 12%,
+    rgba(22, 233, 172, 0.5) 75%
+  );
+}
+
+.blog-card > p {
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-card > h1 {
+  font-size: 3rem;
+}
+
+.blog-card:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(207, 44, 249, 1) 12%,
+    rgba(207, 44, 249, 1) 31%,
+    rgba(22, 233, 172, 1) 75%
+  );
+}
+
+h1 {
+  color: white;
+  font-size: 5rem;
+}
+
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  width: 100%;
 }
 
 body {
+  background: #0c192b;
   padding: 1rem;
+  color: white;
+}
+
+Link {
+  color: white;
+  text-decoration: none;
 }
 
 .new-blog-button {
   text-decoration: none;
   color: black;
 }
+
+.make-blog-button {
+  text-decoration: none;
+  color: white;
+  border: 2px white solid;
+  border-radius: 10px;
+  padding: 1rem;
+  justify-self: center;
+  align-self: center;
+  transition: 150ms;
+}
+
+.make-blog-button:hover {
+  background-color: white;
+  color: #0c192b;
+  transition: 150ms;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+

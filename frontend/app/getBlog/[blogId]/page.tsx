@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { baseAccount, blog, getProgram, getProvider } from "@/utils/utils";
 import { BN } from "@project-serum/anchor";
+import "./page.css";
 function Page() {
   const params = useParams();
 
@@ -55,14 +56,18 @@ function Page() {
 
   return (
     <div>
-      <h1>This is blog page</h1>
       <br />
       {blog ? (
         <>
           <p>{blog!.author.toString()}</p>
-          <h2>{blog!.title}</h2>
-          <p>{blog!.content}</p>
-          <p>{Number(blog!.likes)}</p>
+          <h1>{blog!.title}</h1>
+          <div className="content-container">
+            <p>{blog!.content}</p>
+          </div>
+          <p>
+            
+            Upvotes: <h2>{Number(blog!.likes)}</h2>
+          </p>
           <br />
           <button onClick={upvote}>Upvote</button>
         </>
