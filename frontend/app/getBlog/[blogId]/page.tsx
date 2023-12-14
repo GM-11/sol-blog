@@ -64,10 +64,7 @@ function Page() {
           <div className="content-container">
             <p>{blog!.content}</p>
           </div>
-          <p>
-            
-            Upvotes: <h2>{Number(blog!.likes)}</h2>
-          </p>
+          Upvotes: <h2>{Number(blog!.likes)}</h2>
           <br />
           <button onClick={upvote}>Upvote</button>
         </>

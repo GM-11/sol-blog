@@ -30,10 +30,7 @@ function Home() {
 
   async function connectSolanaWallet() {
     if (window.solana) {
-      console.log("Phantom detected");
-      const res = await window.solana.connect({
-        onlyIfTrusted: true,
-      });
+      const res = await window.solana.connect();
       setAddress(res.publicKey.toString());
     } else {
       alert("Please install phantom wallet");
@@ -48,11 +45,8 @@ function Home() {
       totalBlogs: BN;
       blogsList: [];
     };
-
     const blogs = account.blogsList;
-
     blogs.sort((a: blog, b: blog) => Number(b.likes) - Number(a.likes));
-
     setBlogs(blogs);
   }
 
