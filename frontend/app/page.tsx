@@ -47,7 +47,7 @@ function Home() {
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
         <div>
-          <Main/>
+          <Main />
         </div>{" "}
       </WalletProvider>
     </ConnectionProvider>
@@ -148,6 +148,9 @@ function Main() {
                       )}
                     </strong>
                     <p>{blog.author.toString()}</p>
+                    <p>
+                      Upvotes: <strong>{Number(blog.likes)}</strong>
+                    </p>
                   </Link>
                 );
               })}

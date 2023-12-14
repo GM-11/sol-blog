@@ -43,7 +43,6 @@ function Page() {
           .rpc();
 
         alert("Blog added");
-        redirect("/")
 
 
       }
