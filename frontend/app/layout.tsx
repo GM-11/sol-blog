@@ -4,6 +4,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export const metadata: Metadata = {
   title: "SolBlog",
   description: "Decentralized blogging with Solana",
@@ -16,7 +17,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <body className={inter.className}>{children}</body> */}
       <body>{children}</body>
     </html>
   );
