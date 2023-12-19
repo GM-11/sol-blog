@@ -106,3 +106,36 @@ Link {
 }
 
 
+
+@media screen and (max-width: 768px) {
+  .blog-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .blog-card {
+    height: 10rem;
+  }
+
+  .blog-card > h1 {
+    font-size: 2rem;
+  }
+
+  .blog-card > p {
+    font-size: 0.5rem;
+  }
+
+  .make-blog-button {
+    font-size: 0.5rem;
+  }
+
+  .blog-card > button {
+    font-size: 0.5rem;
+  }
+
+  p {
+    flex-wrap: wrap;
+    margin: 1rem;
+    font-size: 0.75rem;
+  }
+  
+}

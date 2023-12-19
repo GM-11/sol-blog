@@ -39,3 +39,19 @@ button:hover {
     margin: 0.5rem 0;
 
 }
+
+
+@media screen and (min-width: 768px) {
+  .content {
+    width: 50%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  
+  h1{
+    font-size: 5rem;
+  }
+}
